@@ -1,0 +1,11 @@
+.contacts {
+  margin-left: 0;
+  list-style: none;
+  width: 500px;
+}
+
+.notification {
+  font-size: 50px;
+  font-weight: 900;
+  text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0, 0, 0, 0.15);
+}
