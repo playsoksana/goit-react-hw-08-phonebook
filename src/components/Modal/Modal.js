@@ -1,6 +1,6 @@
 import { useEffect, useCallback } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Styles from './Modal.module.css';
-import ButtonIcon from '../Button/ButtonIcon';
 import PropTypes from 'prop-types';
 import { ReactComponent as IconAddContact } from '../../icon/close.svg';
 import { createPortal } from 'react-dom';
@@ -37,14 +37,8 @@ function Modal({ toggleIsVisible, children, isVisibleModal }) {
   return createPortal(
     <div className={Styles.Backdrop} onClick={closeBackdropOnClick}>
       <div className={Styles.Modal}>{children}</div>
-      <ButtonIcon
-        toggleIsVisible={toggleIsVisible}
-        aria="close"
-        classButton="ButtonIcon"
-      >
-        <IconAddContact width="20px" height="20px" />
-      </ButtonIcon>
-    </div>,
+      <div className={Styles.Close}><button type="button" class="btn-close btn-close-white" color='#fff' onClick={toggleIsVisible} aria-label="Close" width="30px" height="30px"></button></div>
+     </div>,
     modalRoot,
   );
 }

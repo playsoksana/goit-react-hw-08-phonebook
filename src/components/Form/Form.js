@@ -45,8 +45,8 @@ const Form = ({ setIsVisibleModal }) => {
   }
 
   return (
-    <form className={styles.form} onSubmit={addContactOnPhonebook}>
-      <div className={styles.container}>
+    <form className={styles.Form} onSubmit={addContactOnPhonebook}>
+      <div className={styles.Container}>
         <Input
           id="name"
           value={state.name}
@@ -60,7 +60,7 @@ const Form = ({ setIsVisibleModal }) => {
         />
       </div>
 
-      <div className={styles.container}>
+      <div className={styles.Container}>
         <Input
           id="number"
           value={state.number}
@@ -73,7 +73,7 @@ const Form = ({ setIsVisibleModal }) => {
           textLabel="number"
         />
       </div>
-      <Button />
+      <div className={styles.Button}><Button type={'onClick'}>Add contact</Button></div>
     </form>
   );
 };

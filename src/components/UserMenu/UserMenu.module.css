@@ -1,0 +1,11 @@
+.Text {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.Icon {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+  fill: rgb(26, 113, 54);
+}

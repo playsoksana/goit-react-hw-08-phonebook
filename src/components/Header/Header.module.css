@@ -1,0 +1,15 @@
+.Navigation {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Nav {
+  color: rgb(39, 35, 35);
+  font-weight: 700;
+  margin-left: 40px;
+  text-decoration: none;
+}
+.Active {
+  color: rgb(70, 27, 117);
+  text-decoration: underline;
+}

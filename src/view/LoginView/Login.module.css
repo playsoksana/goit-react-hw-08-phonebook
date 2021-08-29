@@ -1,0 +1,13 @@
+.Form {
+  width: 500px;
+  margin: 50px auto;
+}
+
+.Button {
+  margin: 10px 50%;
+  transform: translateX(-50%);
+}
+
+.Text {
+  text-align: center;
+}

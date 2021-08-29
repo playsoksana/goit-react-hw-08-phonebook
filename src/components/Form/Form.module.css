@@ -1,13 +1,17 @@
-.form {
+.Form {
   padding: 20px 20px;
   border: 1px solid #440f0f;
   box-shadow: 0px 0px 8px 0px #990f0f;
   border-radius: 10px;
 }
 
-.container {
+.Container {
   display: flex;
   flex-direction: row-reverse;
   padding: 5px 0;
   margin-bottom: 30px;
+}
+
+.Button {
+  margin-left: 50%;
 }

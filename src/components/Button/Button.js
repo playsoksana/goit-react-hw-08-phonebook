@@ -1,10 +1,9 @@
-import React from 'react';
-import styles from './Button.module.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Button = () => (
-  <button className={styles.button} type="submit">
-    Add contact
-  </button>
+const ButtonBlack = ({type, onClick, children}) => (
+ <button type={type} className="btn btn-dark" onClick={onClick}>
+    {children}
+      </button>
 );
 
-export default Button;
+export default ButtonBlack;
