@@ -31,5 +31,5 @@ export default {
   getCurrentUserRequest,
   getCurrentUserSuccess,
   getCurrentUserError,
-  isLoggedIn
+  isLoggedIn,
 };

@@ -37,8 +37,18 @@ function Modal({ toggleIsVisible, children, isVisibleModal }) {
   return createPortal(
     <div className={Styles.Backdrop} onClick={closeBackdropOnClick}>
       <div className={Styles.Modal}>{children}</div>
-      <div className={Styles.Close}><button type="button" class="btn-close btn-close-white" color='#fff' onClick={toggleIsVisible} aria-label="Close" width="30px" height="30px"></button></div>
-     </div>,
+      <div className={Styles.Close}>
+        <button
+          type="button"
+          className="btn-close btn-close-white"
+          color="#fff"
+          onClick={toggleIsVisible}
+          aria-label="Close"
+          width="30px"
+          height="30px"
+        ></button>
+      </div>
+    </div>,
     modalRoot,
   );
 }

@@ -13,8 +13,6 @@ const isLoadingReducer = createReducer(false, {
   [contactsAction.fetchContactsRequest]: () => true,
   [contactsAction.fetchContactsSuccess]: () => false,
   [contactsAction.fetchContactsError]: () => false,
-  [contactsAction.addContact]: () => false,
-  [contactsAction.deleteContact]: () => false,
 });
 
 const filterReducer = createReducer('', {
@@ -27,19 +25,11 @@ const errorReducer = createReducer(null, {
   [contactsAction.fetchContactsRequest]: () => null,
 });
 
-const isEmpty = createReducer(false, {
-  [contactsAction.isEmpty]: (_, { payload }) => {
-    console.log(payload);
-    return payload;
-  },
-});
-
 const contactsReducer = combineReducers({
   items: itemsReducer,
   filter: filterReducer,
   isLoading: isLoadingReducer,
   error: errorReducer,
-  isEmpty,
 });
 
 export default contactsReducer;

@@ -73,7 +73,9 @@ const Form = ({ setIsVisibleModal }) => {
           textLabel="number"
         />
       </div>
-      <div className={styles.Button}><Button type={'onClick'}>Add contact</Button></div>
+      <div className={styles.Button}>
+        <Button type="onClick">Add contact</Button>
+      </div>
     </form>
   );
 };

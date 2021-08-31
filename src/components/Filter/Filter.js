@@ -21,8 +21,7 @@ const Filter = ({ onChangeInputByFilter }) => {
       <Input
         value={state}
         name="search"
-       
-        Placeholder="Найти контакт"
+        placeholder="Найти контакт"
         onChangeInput={onChangeInput}
       />
     </div>

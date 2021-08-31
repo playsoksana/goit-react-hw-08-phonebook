@@ -6,29 +6,48 @@ import style from './Header.module.css';
 import UserMenu from 'components/UserMenu';
 
 const Header = () => {
-  
   const isLoggedIn = useSelector(authSelector.getIsLoggedIn);
 
   return (
     <header>
       <nav className={style.Navigation}>
-
         <div>
-                    <NavLink exact to="/" className={style.Nav} activeClassName={style.Active}>
-          Главная
-        </NavLink>
-        <NavLink exact to="/contacts" className={style.Nav} activeClassName={style.Active}>
-          Список контактов
+          <NavLink
+            exact
+            to="/"
+            className={style.Nav}
+            activeClassName={style.Active}
+          >
+            Главная
           </NavLink>
-         
-      </div>
+          <NavLink
+            exact
+            to="/contacts"
+            className={style.Nav}
+            activeClassName={style.Active}
+          >
+            Список контактов
+          </NavLink>
+        </div>
 
-        {isLoggedIn ? ( <UserMenu/>) : (
+        {isLoggedIn ? (
+          <UserMenu />
+        ) : (
           <div>
-            <NavLink exact to="/register" className={style.Nav} activeClassName={style.Active}>
+            <NavLink
+              exact
+              to="/register"
+              className={style.Nav}
+              activeClassName={style.Active}
+            >
               Регистрация
             </NavLink>
-            <NavLink exact to="/login" className={style.Nav} activeClassName={style.Active}>
+            <NavLink
+              exact
+              to="/login"
+              className={style.Nav}
+              activeClassName={style.Active}
+            >
               Логин
             </NavLink>
           </div>
