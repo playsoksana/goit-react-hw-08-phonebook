@@ -2,8 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import * as authSelector from '../../redux/authRedux/authSelector';
-import style from './Header.module.css';
 import UserMenu from 'components/UserMenu';
+import style from './Header.module.css';
 
 const Header = () => {
   const isLoggedIn = useSelector(authSelector.getIsLoggedIn);

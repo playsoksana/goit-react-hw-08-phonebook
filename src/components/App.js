@@ -1,31 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import { Suspense } from 'react';
-import { connect, useSelector } from 'react-redux';
-import { ToastContainer } from 'react-toastify';
-import '../index.css';
-import 'react-toastify/dist/ReactToastify.css';
-import Form from './Form/Form';
-
-import ContactsView from '../view/ContactsView/ContactsView';
-import { useDispatch } from 'react-redux';
-
-import Modal from './Modal/Modal';
-
-import { contactsSelector } from 'redux/contactsRedux';
-import * as authSelector from 'redux/authRedux/authSelector';
+import React, { useState, useEffect, Suspense } from 'react';
+import { connect, useSelector, useDispatch } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import { css } from '@emotion/react';
+import PacmanLoader from 'react-spinners/PacmanLoader';
+import 'react-toastify/dist/ReactToastify.css';
+import '../index.css';
+import Form from './Form/Form';
+import Modal from './Modal/Modal';
+import ContactsView from '../view/ContactsView/ContactsView';
+import * as authSelector from 'redux/authRedux/authSelector';
 import Header from 'components/Header';
 import RegisterView from 'view/RegisterView';
 import LoginView from 'view/LoginView';
-
 import * as authOperation from '../redux/authRedux/authOperation';
 import PrivateRoute from './Routes/PrivateRoute';
 import PublicRoute from './Routes/PublicRoute';
+import kiss from '../icon/kiss.jpg';
+
+const override = css`
+  display: block;
+  margin: 50px;
+  border-color: red;
+`;
 
 const App = () => {
   const [isVisibleModal, setIsVisibleModal] = useState(false);
   const dispatch = useDispatch();
-  const items = useSelector(contactsSelector.getItems);
   const token = useSelector(authSelector.getToken);
   const isLoader = useSelector(authSelector.getIsLoader);
   const toggleIsVisible = () =>
@@ -38,49 +39,46 @@ const App = () => {
       return;
     }
     dispatch(authOperation.fetchByToken());
-  }, [dispatch]);
+  }, [dispatch, token]);
 
-  return (
-    !isLoader && (
-      <>
-        <Header />
-        <Suspense fallback={<p>Загружаем.....</p>}>
-          <Switch>
-            <Route exact path="/">
-              <div>home</div>
-            </Route>
+  return isLoader ? (
+    <PacmanLoader color="green" loading={isLoader} css={override} size={35} />
+  ) : (
+    <>
+      <Header />
+      <Suspense fallback={<p>Загружаем.....</p>}>
+        <Switch>
+          <Route exact path="/">
+            <img src={kiss} width="400px" alt="phone"></img>
+          </Route>
 
-            <PrivateRoute exact path="/contacts" urlFToRedirect="/login">
-              <ContactsView toggleIsVisible={toggleIsVisible} />
-            </PrivateRoute>
+          <PrivateRoute exact path="/contacts" urlFToRedirect="/login">
+            <ContactsView toggleIsVisible={toggleIsVisible} />
+          </PrivateRoute>
 
-            <PublicRoute
-              exact
-              path="/register"
-              urlFToRedirect="/contacts"
-              restricted
-            >
-              <RegisterView />
-            </PublicRoute>
-            <PublicRoute
-              exact
-              path="/login"
-              urlFToRedirect="/contacts"
-              restricted
-            >
-              <LoginView />
-            </PublicRoute>
-          </Switch>
-        </Suspense>
-        <ToastContainer />
-        <Modal
-          toggleIsVisible={toggleIsVisible}
-          isVisibleModal={isVisibleModal}
-        >
-          <Form setIsVisibleModal={setIsVisibleModal} />
-        </Modal>
-      </>
-    )
+          <PublicRoute
+            exact
+            path="/register"
+            urlFToRedirect="/contacts"
+            restricted
+          >
+            <RegisterView />
+          </PublicRoute>
+          <PublicRoute
+            exact
+            path="/login"
+            urlFToRedirect="/contacts"
+            restricted
+          >
+            <LoginView />
+          </PublicRoute>
+        </Switch>
+      </Suspense>
+      <ToastContainer />
+      <Modal toggleIsVisible={toggleIsVisible} isVisibleModal={isVisibleModal}>
+        <Form setIsVisibleModal={setIsVisibleModal} />
+      </Modal>
+    </>
   );
 };
 

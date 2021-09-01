@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { connect, useSelector, useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 import Button from '../Button';
 import styles from './Form.module.css';
 import Input from '../Input';
-import PropTypes from 'prop-types';
+
 import notify from 'helpers/notify';
 import { contactsOperation, contactsSelector } from '../../redux/contactsRedux';
 

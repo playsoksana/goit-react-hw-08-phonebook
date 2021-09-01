@@ -1,9 +1,8 @@
 import { useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
+import PropTypes from 'prop-types';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Styles from './Modal.module.css';
-import PropTypes from 'prop-types';
-import { ReactComponent as IconAddContact } from '../../icon/close.svg';
-import { createPortal } from 'react-dom';
 
 const modalRoot = document.querySelector('#modal-root');
 
