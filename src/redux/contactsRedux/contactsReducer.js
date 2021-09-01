@@ -29,7 +29,6 @@ const errorReducer = createReducer(null, {
 
 const isEmpty = createReducer(false, {
   [contactsAction.isEmpty]: (_, { payload }) => {
-    console.log(payload);
     return payload;
   },
 });
