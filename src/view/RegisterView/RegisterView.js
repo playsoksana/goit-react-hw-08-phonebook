@@ -14,6 +14,7 @@ const RegisterView = () => {
     const {
       target: { name, email, password },
     } = ev;
+
     const data = {
       name: name.value,
       email: email.value,
@@ -25,15 +26,29 @@ const RegisterView = () => {
   return (
     <Form className={styles.Form} onSubmit={onSubmit}>
       <h2 className={styles.Text}>Регистрация</h2>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Group className="mb-3" controlId="formBasicName">
         <Form.Label>Имя</Form.Label>
-        <Form.Control type="text" placeholder="Введите имя" name="name" />
+        <Form.Control
+          type="text"
+          autoComplete="on"
+          required
+          placeholder="Введите имя"
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          name="name"
+        />
         <Form.Text className="text-muted"></Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Электронная почта</Form.Label>
-        <Form.Control type="email" placeholder="Введите почту" name="email" />
+        <Form.Control
+          type="email"
+          required
+          autoComplete="on"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          placeholder="Введите почту"
+          name="email"
+        />
         <Form.Text className="text-muted"></Form.Text>
       </Form.Group>
 
@@ -43,6 +58,8 @@ const RegisterView = () => {
           type="password"
           placeholder="Введите пароль"
           name="password"
+          autoComplete="off"
+          required
         />
       </Form.Group>
 

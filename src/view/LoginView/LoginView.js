@@ -27,7 +27,14 @@ const LoginView = () => {
         <h2 className={styles.Text}>Авторизация</h2>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Электронная почта</Form.Label>
-          <Form.Control type="email" placeholder="Введите почту" name="email" />
+          <Form.Control
+            type="email"
+            required
+            autoComplete="on"
+            placeholder="Введите почту"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            name="email"
+          />
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
 
@@ -37,6 +44,9 @@ const LoginView = () => {
             type="password"
             placeholder="Введите пароль"
             name="password"
+            title="Должен содержать не менее 6 символов"
+            autoComplete="off"
+            required
           />
         </Form.Group>
 
